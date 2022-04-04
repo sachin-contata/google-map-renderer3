@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  web:
+    image: headless-browser3:latest
+    volumes:
+      - ./pythonScript:/pythonScript # check if it creates the /pythonScript folder internally
+    environment:
+      CRON_EXPRESSION: ”* 0 * * *"
+      URL: "http://localhost:4300"
+      PASSWORD: "Password@123"
+    stdin_open: true # docker run -i
+    tty: true
+    entrypoint: /bin/sh
